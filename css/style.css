@@ -1,0 +1,43 @@
+#menu {
+  height: 60px;
+  width: 100%;
+  color: none;
+  background: none;
+}
+
+.editar-library {
+  border: none;
+  color: #202124;
+  text-decoration: none;
+  padding: 5px 15px;
+  background: #ffe695;
+  border-radius: 5px;
+}
+
+.btn_remove {
+  border: none;
+  color: #202124;
+  text-decoration: none;
+  padding: 5px 15px;
+  background: #f1b3b8;
+  border-radius: 5px;
+}
+
+.editar-library a {
+  text-decoration: none;
+  color: #202124;
+}
+.editar-library:hover {
+  background: #ffd859;
+  outline: 3px solid #cfa61d;
+}
+.btn_remove:hover {
+  background: #f87983;
+  outline: 3px solid #cf2e3c;
+}
+table {
+  margin-top: 15px;
+}
+thead {
+  background: #a5a5a5;
+}

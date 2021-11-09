@@ -40,8 +40,6 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="?page=livro-listar">Listar</a></li>
                                 <li><a class="dropdown-item" href="?page=livro-cadastrar">Cadastrar</a></li>
-                                <li><a class="dropdown-item" href="?page=livro-editar">Editar</a></li>
-                                <li><a class="dropdown-item" href="?page=livro-salvar">Salvar</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
@@ -49,8 +47,6 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="?page=categoria-listar">Listar</a></li>
                                 <li><a class="dropdown-item" href="?page=categoria-cadastrar">Cadastrar</a></li>
-                                <li><a class="dropdown-item" href="?page=categoria-editar">Editar</a></li>
-                                <li><a class="dropdown-item" href="?page=categoria-salvar">Salvar</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
@@ -58,8 +54,6 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="?page=reserva-listar">Listar</a></li>
                                 <li><a class="dropdown-item" href="?page=reserva-cadastrar">Cadastrar</a></li>
-                                <li><a class="dropdown-item" href="?page=reserva-editar">Editar</a></li>
-                                <li><a class="dropdown-item" href="?page=reserva-salvar">Salvar</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
@@ -67,17 +61,6 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="?page=usuario-listar">Listar</a></li>
                                 <li><a class="dropdown-item" href="?page=usuario-cadastrar">Cadastrar</a></li>
-                                <li><a class="dropdown-item" href="?page=usuario-editar">Editar</a></li>
-                                <li><a class="dropdown-item" href="?page=usuario-salvar">Salvar</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Usários</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="?page=usuario-listar">Listar</a></li>
-                                <li><a class="dropdown-item" href="?page=usuario-cadastrar">Cadastrar</a></li>
-                                <li><a class="dropdown-item" href="?page=usuario-editar">Editar</a></li>
-                                <li><a class="dropdown-item" href="?page=usuario-salvar">Salvar</a></li>
                             </ul>
                         </li>
                     </ul>

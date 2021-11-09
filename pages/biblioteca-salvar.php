@@ -9,7 +9,7 @@ $cep = @$_POST["cep"];
 switch ($_REQUEST['acao']) {
     case 'cadastrar':
         # code...
-        $sql = "INSERT INTO web.biblioteca (name, address, city, state, cep) 
+        $sql = "INSERT INTO biblioteca (name, address, city, state, cep) 
                 VALUES('{$name}', '{$address}', '{$city}', '{$state}', {$cep})";
         $result = $conn->query($sql);
         if ($result == true) {
@@ -21,7 +21,7 @@ switch ($_REQUEST['acao']) {
         }
         break;
     case 'editar':
-        $sql = "UPDATE web.biblioteca SET name='$name', address='$address', city='$city', state='$state', cep=$cep WHERE id=$id";
+        $sql = "UPDATE biblioteca SET name='$name', address='$address', city='$city', state='$state', cep=$cep WHERE id=$id";
         $result = $conn->query($sql);
         if ($result == true) {
             print "<script>alert('Atualizado com sucesso');</script>";
@@ -32,7 +32,15 @@ switch ($_REQUEST['acao']) {
         }
         break;
     case 'excluir':
-        # code...
+        $sql = "delete from biblioteca where id=$id";
+        $result = $conn->query($sql);
+        if ($result == true) {
+            print "<script>alert('Excluido com sucesso');</script>";
+            print "<script>location.href='?page=biblioteca-listar'</script>";
+        } else {
+            print "<script>alert('Error ao excluir');</script>";
+            print "<script>location.href='?page=biblioteca-listar'</script>";
+        }
         break;
 
     default:

@@ -1,8 +1,8 @@
 <?php
 define('HOST', 'localhost');
-define('USER', 'study');
-define('PASS', '123');
-define('BASE', 'web');
+define('USER', 'dev');
+define('PASS', 'dev');
+define('BASE', 'dev');
 
 $conn = new mysqli(HOST,USER, PASS,BASE);
 ?>

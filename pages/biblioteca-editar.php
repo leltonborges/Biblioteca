@@ -1,6 +1,6 @@
 <?php
 $id = $_REQUEST['id'];
-$sql = "SELECT * FROM web.biblioteca where id = " . $id;
+$sql = "SELECT * FROM biblioteca where id = " . $id;
 $result = mysqli_query($conn, $sql, MYSQLI_USE_RESULT);
 $row = $result->fetch_array(MYSQLI_ASSOC);
 

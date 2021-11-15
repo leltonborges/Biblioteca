@@ -6,6 +6,8 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
 
 ?>
 <section class="context">
+    <h1>Editar bibliotecas</h1>
+    <hr/>
     <form class="row g-3" method="POST" action="?page=biblioteca-salvar">
         <input type="hidden" name="acao" value="editar">
         <input type="hidden" name="id" value="<?php echo $id ?>">

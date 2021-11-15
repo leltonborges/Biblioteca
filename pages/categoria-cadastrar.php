@@ -1,4 +1,6 @@
 <section class="context">
+    <h1>Cadastrar categorias</h1>
+    <hr/>
     <form class="row g-3" method="POST" action="?page=categoria-salvar">
         <input type="hidden" name="acao" value="cadastrar">
         <div class="col-md-12">

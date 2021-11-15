@@ -5,6 +5,8 @@ $result = $conn->query($sql);
 ?>
 
 <section class="context">
+    <h1>Cadastrar atendentes</h1>
+    <hr/>
     <form class="row g-3" method="POST" action="?page=atendente-salvar">
         <input type="hidden" name="acao" value="cadastrar">
         <div class="col-md-6">

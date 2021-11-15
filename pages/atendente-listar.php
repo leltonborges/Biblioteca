@@ -1,4 +1,6 @@
 <section class="list-library">
+    <h1>Todos os atendentes</h1>
+    <hr/>
     <table class="table table-hover">
         <thead>
         <tr>

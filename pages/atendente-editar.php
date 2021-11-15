@@ -11,6 +11,8 @@ $objAtendente = $resultAtendente->fetch_object();
 ?>
 
 <section class="context">
+    <h1>Editar atendentes</h1>
+    <hr/>
     <form class="row g-3" method="POST" action="?page=atendente-salvar">
         <input type="hidden" name="acao" value="editar">
         <input type="hidden" name="id" value="<?php echo $objAtendente->id ?>">

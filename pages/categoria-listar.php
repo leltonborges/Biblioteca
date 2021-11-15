@@ -1,4 +1,6 @@
 <section class="list-library">
+    <h1>Todas as categorias</h1>
+    <hr/>
     <table class="table table-hover">
         <thead>
         <tr>

@@ -8,7 +8,6 @@ $cep = @$_POST["cep"];
 
 switch ($_REQUEST['acao']) {
     case 'cadastrar':
-        # code...
         $sql = "INSERT INTO biblioteca (name, address, city, state, cep) 
                 VALUES('{$name}', '{$address}', '{$city}', '{$state}', {$cep})";
         $result = $conn->query($sql);
@@ -44,6 +43,5 @@ switch ($_REQUEST['acao']) {
         break;
 
     default:
-        # code...
         break;
 }

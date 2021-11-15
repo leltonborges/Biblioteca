@@ -73,90 +73,11 @@
     <section class="container">
         <?php
         include("config.php");
-
-        switch ($_GET["page"]) {
-                //biblioteca
-            case "biblioteca-listar":
-                include("pages/biblioteca-listar.php");
-                break;
-            case "biblioteca-cadastrar":
-                include("pages/biblioteca-cadastrar.php");
-                break;
-            case "biblioteca-editar":
-                include("pages/biblioteca-editar.php");
-                break;
-            case "biblioteca-salvar":
-                include("pages/biblioteca-salvar.php");
-                break;
-                //atendente
-            case "atendente-listar":
-                include("pages/atendente-listar.php");
-                break;
-            case "atendente-cadastrar":
-                include("pages/atendente-cadastrar.php");
-                break;
-            case "atendente-editar":
-                include("pages/atendente-editar.php");
-                break;
-            case "atendente-salvar":
-                include("pages/atendente-salvar.php");
-                break;
-                //usuario
-            case "usuario-listar":
-                include("pages/usuario-listar.php");
-                break;
-            case "usuario-cadastrar":
-                include("pages/usuario-cadastrar.php");
-                break;
-            case "usuario-editar":
-                include("pages/usuario-editar.php");
-                break;
-            case "usuario-salvar":
-                include("pages/usuario-salvar.php");
-                break;
-                //categoria
-            case "categoria-listar":
-                include("pages/categoria-listar.php");
-                break;
-            case "categoria-cadastrar":
-                include("pages/categoria-cadastrar.php");
-                break;
-            case "categoria-editar":
-                include("pages/categoria-editar.php");
-                break;
-            case "categoria-salvar":
-                include("pages/categoria-salvar.php");
-                break;
-                //livro
-            case "livro-listar":
-                include("pages/livro-listar.php");
-                break;
-            case "livro-cadastrar":
-                include("pages/livro-cadastrar.php");
-                break;
-            case "livro-editar":
-                include("pages/livro-editar.php");
-                break;
-            case "livro-salvar":
-                include("pages/livro-salvar.php");
-                break;
-                //reserva
-            case "reserva-listar":
-                include("pages/reserva-listar.php");
-                break;
-            case "reserva-cadastrar":
-                include("pages/reserva-cadastrar.php");
-                break;
-            case "reserva-editar":
-                include("pages/reserva-editar.php");
-                break;
-            case "reserva-salvar":
-                include("pages/reserva-salvar.php");
-                break;
-
-            default:
-                include("pages/main.php");
-                break;
+        $path = $_GET["page"];
+        if($path != null){
+            include("pages/$path.php");
+        }else{
+            include("pages/main.php");
         }
         ?>
     </section>

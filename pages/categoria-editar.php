@@ -9,7 +9,7 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
     <form class="row g-3" method="POST" action="?page=categoria-salvar">
         <input type="hidden" name="acao" value="editar">
         <input type="hidden" name="id" value="<?php echo $id ?>">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label for="nome" class="form-label">Nome da categoria</label>
             <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $row['name']; ?>">
         </div>

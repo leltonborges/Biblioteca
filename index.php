@@ -36,6 +36,13 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Atendente</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="?page=atendente-cadastrar">Cadastrar</a></li>
+                                <li><a class="dropdown-item" href="?page=atendente-listar">Listar</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Livros</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="?page=livro-listar">Listar</a></li>

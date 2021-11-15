@@ -14,8 +14,7 @@
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT * FROM biblioteca limit 6";
-
+        $sql = "SELECT * FROM biblioteca";
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             print "<tr>";

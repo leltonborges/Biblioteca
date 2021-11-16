@@ -1,4 +1,7 @@
 <?php
+setlocale(LC_ALL, 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
+
 define('HOST', 'localhost');
 define('USER', 'study');
 define('PASS', '123');

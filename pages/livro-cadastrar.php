@@ -20,15 +20,15 @@ $result = $conn->query($query);
             <input type="text" class="form-control" id="editora" name="editora" required>
         </div>
         <div class="col-md-6">
-            <label for="editora" class="form-label">Edição</label>
+            <label for="edicao" class="form-label">Edição</label>
             <input type="text" class="form-control" id="edicao" name="edicao" maxlength="3" required>
         </div>
         <div class="col-md-3">
-            <label for="editora" class="form-label">Ano</label>
+            <label for="ano" class="form-label">Ano</label>
             <input type="number" class="form-control" id="ano" name="ano" maxlength="4" placeholder="2001" required>
         </div>
         <div class="col-md-5">
-            <label for="editora" class="form-label">Localidade</label>
+            <label for="localidade" class="form-label">Localidade</label>
             <input type="text" class="form-control" id="localidade" name="localidade" required>
         </div>
         <div class="col-md-4">

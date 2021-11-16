@@ -34,17 +34,17 @@ $obj = $resultLivro->fetch_object();
                    name="editora" value="<?php echo $obj->editora; ?>" required>
         </div>
         <div class="col-md-6">
-            <label for="editora" class="form-label">Edição</label>
+            <label for="edicao" class="form-label">Edição</label>
             <input type="text" class="form-control" id="edicao" name="edicao"
                    maxlength="3" value="<?php echo $obj->edicao; ?>" required>
         </div>
         <div class="col-md-3">
-            <label for="editora" class="form-label">Ano</label>
+            <label for="ano" class="form-label">Ano</label>
             <input type="number" class="form-control" id="ano" name="ano"
                    maxlength="4" placeholder="2001" value="<?php echo $obj->ano; ?>" required>
         </div>
         <div class="col-md-5">
-            <label for="editora" class="form-label">Localidade</label>
+            <label for="localidade" class="form-label">Localidade</label>
             <input type="text" class="form-control" id="localidade"
                    name="localidade" value="<?php echo $obj->localidade; ?>" required>
         </div>

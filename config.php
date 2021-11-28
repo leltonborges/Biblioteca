@@ -8,4 +8,9 @@ define('PASS', '123');
 define('BASE', 'bibliotecaria');
 
 $conn = new mysqli(HOST,USER, PASS,BASE);
+
+//Checando conexão
+if (!$conn) {
+    die("Falha na conexão: " . mysli_connect_error());
+}
 ?>

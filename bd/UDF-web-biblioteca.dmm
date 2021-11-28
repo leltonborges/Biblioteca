@@ -122,8 +122,7 @@
 			"name": "reserva",
 			"relations": [
 				"3d505339-193c-4093-bc49-7a57f59e68f8",
-				"85aab0f6-381a-4de5-bb4e-affcd7c674f5",
-				"36a87d38-46b2-4b9e-b8a0-f7936b7cfe0d"
+				"85aab0f6-381a-4de5-bb4e-affcd7c674f5"
 			],
 			"rowformat": "Dynamic",
 			"tabletype": "InnoDB",
@@ -245,27 +244,6 @@
 					"isHidden": false,
 					"fk": true,
 					"ref": "biblioteca"
-				},
-				{
-					"after": "",
-					"autoinc": false,
-					"charset": null,
-					"collation": null,
-					"comment": "",
-					"datatype": "INT",
-					"defaultvalue": "",
-					"enum": "",
-					"id": "3b07a41d-98ee-48e9-bbfd-4fb4e364f15e",
-					"list": false,
-					"name": "livro_id_livro",
-					"nn": true,
-					"param": "10",
-					"pk": false,
-					"unsigned": true,
-					"zerofill": false,
-					"isHidden": false,
-					"fk": true,
-					"ref": "livro"
 				}
 			],
 			"indexes": [
@@ -516,7 +494,7 @@
 			"name": "livro",
 			"relations": [
 				"86866beb-8b16-4401-bee8-89c6a7971a52",
-				"36a87d38-46b2-4b9e-b8a0-f7936b7cfe0d"
+				"44cc05d7-a609-4b21-921f-6d16708299d3"
 			],
 			"rowformat": "Dynamic",
 			"tabletype": "InnoDB",
@@ -801,7 +779,8 @@
 			"name": "biblioteca",
 			"relations": [
 				"ca2b489f-1249-4931-af90-e8d1c19622a5",
-				"85aab0f6-381a-4de5-bb4e-affcd7c674f5"
+				"85aab0f6-381a-4de5-bb4e-affcd7c674f5",
+				"fa84ed03-c700-49ce-8945-4efafc2b5f5b"
 			],
 			"rowformat": "Dynamic",
 			"tabletype": "InnoDB",
@@ -945,6 +924,89 @@
 			"generate": true,
 			"generateCustomCode": true,
 			"estimatedSize": ""
+		},
+		"ac6a44f8-69d9-412b-b033-b5c2fccc7356": {
+			"id": "ac6a44f8-69d9-412b-b033-b5c2fccc7356",
+			"visible": true,
+			"name": "biblioteca_livro",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"after": "",
+					"autoinc": false,
+					"charset": null,
+					"collation": null,
+					"comment": "",
+					"datatype": "INT",
+					"defaultvalue": "",
+					"enum": "",
+					"id": "2eb0c8e7-a8d1-4924-9b00-b52019df274f",
+					"list": false,
+					"name": "biblioteca_id",
+					"nn": true,
+					"param": "10",
+					"pk": true,
+					"unsigned": true,
+					"zerofill": false,
+					"isHidden": false,
+					"fk": true,
+					"ref": "biblioteca"
+				},
+				{
+					"after": "",
+					"autoinc": false,
+					"charset": null,
+					"collation": null,
+					"comment": "",
+					"datatype": "INT",
+					"defaultvalue": "",
+					"enum": "",
+					"id": "66122661-6751-42a5-abd2-8293cc92de4e",
+					"list": false,
+					"name": "livro_id_livro",
+					"nn": true,
+					"param": "10",
+					"pk": true,
+					"unsigned": true,
+					"zerofill": false,
+					"isHidden": false,
+					"fk": true,
+					"ref": "livro"
+				}
+			],
+			"relations": [
+				"fa84ed03-c700-49ce-8945-4efafc2b5f5b",
+				"44cc05d7-a609-4b21-921f-6d16708299d3"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "bb56373d-cf24-401e-8d32-2a199061dee1",
+					"name": "Primary key",
+					"isPk": true,
+					"using": "na",
+					"cols": [
+						{
+							"id": "998ee30f-49de-437d-b702-a930380841a8",
+							"colid": "2eb0c8e7-a8d1-4924-9b00-b52019df274f"
+						},
+						{
+							"id": "d27ded8e-fc64-4b88-bc8b-6c80640f92ea",
+							"colid": "66122661-6751-42a5-abd2-8293cc92de4e"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"tabletype": "na",
+			"collation": "utf8mb4_general_ci",
+			"charset": "utf8mb4",
+			"rowformat": "na",
+			"database": "biblioteca"
 		}
 	},
 	"relations": {
@@ -1010,7 +1072,7 @@
 			"c_mp": "true",
 			"c_mch": "true",
 			"c_p": "one",
-			"c_ch": "many",
+			"c_ch": "one",
 			"c_cp": "",
 			"c_cch": "",
 			"cols": [
@@ -1035,7 +1097,7 @@
 			"c_mp": "true",
 			"c_mch": "true",
 			"c_p": "one",
-			"c_ch": "many",
+			"c_ch": "one",
 			"c_cp": "",
 			"c_cch": "",
 			"cols": [
@@ -1048,15 +1110,15 @@
 			"generate": true,
 			"generateCustomCode": true
 		},
-		"36a87d38-46b2-4b9e-b8a0-f7936b7cfe0d": {
-			"id": "36a87d38-46b2-4b9e-b8a0-f7936b7cfe0d",
+		"fa84ed03-c700-49ce-8945-4efafc2b5f5b": {
+			"id": "fa84ed03-c700-49ce-8945-4efafc2b5f5b",
 			"visible": true,
-			"name": "livro_reserva",
+			"name": "biblioteca_biblioteca_livro",
 			"desc": "",
 			"type": "identifying",
-			"parent_key": "3e0adc85-0fd0-4e2a-99f7-6b346f0b90d1",
-			"parent": "434ab39f-fa40-47b0-ae26-9375c46df031",
-			"child": "2e630d77-0703-4c13-9e8b-02c37fdb38b6",
+			"parent_key": "29ba2978-84bc-4c49-9cc8-de70fc358e16",
+			"parent": "b0b5549b-53ec-4fd8-a3b5-213bc0904f8c",
+			"child": "ac6a44f8-69d9-412b-b033-b5c2fccc7356",
 			"c_mp": "true",
 			"c_mch": "true",
 			"c_p": "one",
@@ -1065,9 +1127,34 @@
 			"c_cch": "",
 			"cols": [
 				{
-					"id": "ff0b06a4-9de4-458f-88a4-6d0dd31cc0d5",
+					"id": "246ed38d-0bb9-48df-8272-91f0e5ecfd36",
+					"parentcol": "a5035467-6fd5-4137-98a5-de370a591163",
+					"childcol": "2eb0c8e7-a8d1-4924-9b00-b52019df274f"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"44cc05d7-a609-4b21-921f-6d16708299d3": {
+			"id": "44cc05d7-a609-4b21-921f-6d16708299d3",
+			"visible": true,
+			"name": "livro_biblioteca_livro",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "3e0adc85-0fd0-4e2a-99f7-6b346f0b90d1",
+			"parent": "434ab39f-fa40-47b0-ae26-9375c46df031",
+			"child": "ac6a44f8-69d9-412b-b033-b5c2fccc7356",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "27b5ee53-7e8a-4b62-ba1f-32afd9cc858b",
 					"parentcol": "d9956442-2311-45de-9b11-39773413f478",
-					"childcol": "3b07a41d-98ee-48e9-bbfd-4fb4e364f15e"
+					"childcol": "66122661-6751-42a5-abd2-8293cc92de4e"
 				}
 			],
 			"generate": true,
@@ -1089,7 +1176,7 @@
 		"def_others": "",
 		"desc": "",
 		"id": "ccf76795-cc28-4e61-8963-402087c2fe10",
-		"isDirty": true,
+		"isDirty": false,
 		"name": "UDF-web-biblioteca",
 		"parentTableInFkCols": true,
 		"path": "",
@@ -1102,7 +1189,7 @@
 		},
 		"type": "MARIADB",
 		"version": 1,
-		"lastSaved": "Sun Nov 14 2021 21:18:23 GMT-0300 (Brasilia Standard Time)",
+		"lastSaved": "Tue Nov 23 2021 15:02:35 GMT-0300 (Brasilia Standard Time)",
 		"beforeScript": "",
 		"afterScript": "",
 		"sqlSettings": {
@@ -1133,8 +1220,8 @@
 			"description": "",
 			"diagramItems": {
 				"7c9ba477-0854-4fb7-b7f1-3dd9dbd6d033": {
-					"x": 10,
-					"y": 237,
+					"x": 423,
+					"y": 70,
 					"gHeight": 81,
 					"gWidth": 284,
 					"background": "#03a9f4",
@@ -1144,9 +1231,9 @@
 					"autoExpand": true
 				},
 				"2e630d77-0703-4c13-9e8b-02c37fdb38b6": {
-					"x": 10,
-					"y": 38,
-					"gHeight": 153,
+					"x": 408,
+					"y": 208,
+					"gHeight": 135,
 					"gWidth": 287,
 					"background": "#03a9f4",
 					"color": "#ffffff",
@@ -1155,8 +1242,8 @@
 					"autoExpand": true
 				},
 				"26ab2f00-d488-4b79-b189-469397a4c9c0": {
-					"x": 432,
-					"y": 110,
+					"x": 808,
+					"y": 182,
 					"gHeight": 153,
 					"gWidth": 259,
 					"background": "#03a9f4",
@@ -1166,8 +1253,8 @@
 					"autoExpand": true
 				},
 				"434ab39f-fa40-47b0-ae26-9375c46df031": {
-					"x": 432,
-					"y": 418,
+					"x": 734,
+					"y": 476,
 					"gHeight": 171,
 					"gWidth": 276,
 					"background": "#03a9f4",
@@ -1177,8 +1264,8 @@
 					"autoExpand": true
 				},
 				"d00952a5-3227-4508-89a8-d7c8253e99d2": {
-					"x": 854,
-					"y": 544,
+					"x": 1071,
+					"y": 526,
 					"gHeight": 63,
 					"gWidth": 273,
 					"background": "#03a9f4",
@@ -1188,13 +1275,24 @@
 					"autoExpand": true
 				},
 				"b0b5549b-53ec-4fd8-a3b5-213bc0904f8c": {
-					"x": 432,
-					"y": 273,
+					"x": 78,
+					"y": 235,
 					"gHeight": 135,
 					"gWidth": 227,
 					"background": "#03a9f4",
 					"color": "#ffffff",
 					"referencedItemId": "b0b5549b-53ec-4fd8-a3b5-213bc0904f8c",
+					"resized": false,
+					"autoExpand": true
+				},
+				"ac6a44f8-69d9-412b-b033-b5c2fccc7356": {
+					"referencedItemId": "ac6a44f8-69d9-412b-b033-b5c2fccc7356",
+					"x": 397,
+					"y": 426,
+					"gHeight": 63,
+					"gWidth": 221,
+					"color": "#ffffff",
+					"background": "#03a9f4",
 					"resized": false,
 					"autoExpand": true
 				}
@@ -1208,7 +1306,7 @@
 			"background": "transparent",
 			"scroll": {
 				"x": 0,
-				"y": 0
+				"y": 42
 			}
 		}
 	},
@@ -1216,13 +1314,15 @@
 		"26ab2f00-d488-4b79-b189-469397a4c9c0",
 		"7c9ba477-0854-4fb7-b7f1-3dd9dbd6d033",
 		"b0b5549b-53ec-4fd8-a3b5-213bc0904f8c",
+		"ac6a44f8-69d9-412b-b033-b5c2fccc7356",
 		"d00952a5-3227-4508-89a8-d7c8253e99d2",
 		"434ab39f-fa40-47b0-ae26-9375c46df031",
 		"2e630d77-0703-4c13-9e8b-02c37fdb38b6",
 		"3d505339-193c-4093-bc49-7a57f59e68f8",
 		"ca2b489f-1249-4931-af90-e8d1c19622a5",
+		"fa84ed03-c700-49ce-8945-4efafc2b5f5b",
 		"85aab0f6-381a-4de5-bb4e-affcd7c674f5",
 		"86866beb-8b16-4401-bee8-89c6a7971a52",
-		"36a87d38-46b2-4b9e-b8a0-f7936b7cfe0d"
+		"44cc05d7-a609-4b21-921f-6d16708299d3"
 	]
 }

@@ -3,17 +3,38 @@ $id = @$_REQUEST["id"];
 $titulo = @$_REQUEST["titulo"];
 $aluno = @$_REQUEST["aluno"];
 $livro = @$_REQUEST["livro"];
+$atendente = @$_REQUEST["atendente"];
 $biblioteca = @$_REQUEST["biblioteca"];
-$emprestimo = @$_REQUEST["emprestimo"];
-$devolucao = @$_REQUEST["devolucao"];
+$data_emprestimo = @$_REQUEST["emprestimo"];
+$data_devolucao = @$_REQUEST["devolucao"];
 $acao = @$_REQUEST["acao"];
 
-switch ($acao){
+switch ($acao) {
     case "cadastrar":
-        $queryInsert = "insert into reserva (atendente_id_atendente, data_emprestimo, 
-                     data_devolucao, aluno_id_aluno, biblioteca_id, livro_id_livro)    
-                     values (null , '$emprestimo', '$devolucao', $aluno, $biblioteca, $livro)";
-        echo  $queryInsert;
+        $queryInsert = "insert into reserva (atendente_id_atendente, data_emprestimo, data_devolucao,
+                     aluno_id_aluno, biblioteca_id, livro_id_livro)
+                    values ($atendente, '$data_emprestimo', '$data_devolucao', $aluno, $biblioteca, $livro)";
+
+        validaNumber($atendente, $livro, $aluno, $biblioteca);
+
+        $result = $conn->query($queryInsert);
+        if ($result) {
+            print "<script>alert('Cadastrado com sucesso');</script>";
+            print "<script>location.href='?page=reserva-listar'</script>";
+        } else {
+            print "<script>alert('Error ao salvar');</script>";
+            print "<script>location.href='?page=reserva-listar'</script>";
+        }
         break;
 }
+
+function validaNumber(...$filds){
+    foreach ($filds as $value) {
+        if (!is_numeric($value)) {
+            print "<script>alert('Algumas opções não foram preencida corretamente');</script>";
+            print "<script>location.href='?page=reserva-cadastrar'</script>";
+        }
+    }
+}
+
 ?>

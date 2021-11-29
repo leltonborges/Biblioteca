@@ -46,3 +46,6 @@ const getByLibraryAndType = function (id_biblioteca = 0, type = "livros") {
     });
 }
 
+$(".multSelect").select2({
+    // maximumSelectionLength: 2
+});

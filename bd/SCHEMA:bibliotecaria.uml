@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>bb6bdfed-b40f-4c06-9629-6592525f6011.SCHEMA:bibliotecaria</OriginalElement>
+  <nodes>
+    <node x="568.0" y="126.0">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.livro</node>
+    <node x="6.0" y="372.0">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.reserva</node>
+    <node x="-30.0" y="43.0">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.aluno</node>
+    <node x="601.0" y="0.0">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.categoria</node>
+    <node x="310.875" y="90.0">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca</node>
+    <node x="553.0" y="439.5">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca_livro</node>
+    <node x="284.0" y="416.5">bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.atendente</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.livro" target="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.categoria" relationship="REFERENCES">
+      <point x="0.0" y="-104.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca_livro" target="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca" relationship="REFERENCES">
+      <point x="0.0" y="-37.5" />
+      <point x="632.5" y="396.5" />
+      <point x="435.0" y="396.5" />
+      <point x="47.625" y="82.0" />
+    </edge>
+    <edge source="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.reserva" target="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca" relationship="REFERENCES">
+      <point x="59.0" y="-93.0" />
+      <point x="183.0" y="300.5" />
+      <point x="349.125" y="300.5" />
+      <point x="-38.25" y="82.0" />
+    </edge>
+    <edge source="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca_livro" target="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.livro" relationship="REFERENCES">
+      <point x="15.0" y="-37.5" />
+      <point x="647.5" y="338.5" />
+      <point x="648.0" y="338.5" />
+      <point x="-22.5" y="101.5" />
+    </edge>
+    <edge source="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.atendente" target="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.biblioteca" relationship="REFERENCES">
+      <point x="0.0" y="-49.0" />
+      <point x="7.625" y="82.5" />
+    </edge>
+    <edge source="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.reserva" target="bb6bdfed-b40f-4c06-9629-6592525f6011.TABLE:bibliotecaria.aluno" relationship="REFERENCES">
+      <point x="-59.0" y="-93.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="386.5" y="285.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

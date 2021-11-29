@@ -18,6 +18,7 @@ switch ($acao) {
         validaNumber($atendente, $livro, $aluno, $biblioteca);
 
         $result = $conn->query($queryInsert);
+
         if ($result) {
             print "<script>alert('Cadastrado com sucesso');</script>";
             print "<script>location.href='?page=reserva-listar'</script>";

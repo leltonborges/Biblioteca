@@ -8,20 +8,36 @@ $resultAluno = $conn->query($queryAluno);
 $resultBib = $conn->query($queryB);
 $resultLivro = $conn->query($queryLivro);
 
+$id = @$_REQUEST["id"];
+$acao = @$_REQUEST["acao"];
+
+if(isset($id)){
+    $queryReserva = "select r.id_reserva id, r.data_devolucao devolucao, r.data_emprestimo emprestimo, a.nome_aluno aluno,
+                        l.titulo_livro livro,  b.name biblioteca from reserva r
+                        left join aluno a on r.aluno_id_aluno = a.id_aluno
+                        left join biblioteca b on r.biblioteca_id = b.id
+                        left join livro l on l.id_livro = r.livro_id_livro
+                    where r.id_reserva = $id ";
+    $resultReserva = $conn->query($queryReserva);
+    $objR = $resultReserva->fetch_object();
+    var_dump($objR);
+}
 
 ?>
 <section class="context">
     <h1>Cadastrar reservas</h1>
     <hr/>
     <form class="row g-3" method="POST" action="?page=reserva-salvar">
-        <input type="hidden" name="acao" value="cadastrar">
+        <?php if(isset($id)) echo "<input type='hidden' name='id' value='$id'>"?>
+        <input type="hidden" name="acao" value="<?php echo isset($id)? "editar" : "cadastrar"?>">
         <div class="col-md-6">
             <label for="aluno" class="form-label">Aluno</label>
             <select id="aluno" name="aluno" class="form-select" required>
                 <option selected>Choose...</option>
                 <?php
                 while ($obj = $resultAluno->fetch_object()) {
-                    echo "<option value='$obj->id'>$obj->nome</option>";
+                    echo $objR->aluno == $obj->nome ? "<option value='$obj->id' selected>$obj->nome</option>" :
+                            "<option value='$obj->id'>$obj->nome</option>";
                 }
                 ?>
             </select>

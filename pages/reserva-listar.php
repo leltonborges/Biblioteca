@@ -9,6 +9,7 @@
             <th>Livro</th>
             <th>Ano (Livro)</th>
             <th>Autor (Livro)</th>
+            <th>Atendente</th>
             <th>Biblioteca</th>
             <th>Data emprestimo</th>
             <th>Data Devolucão</th>
@@ -20,10 +21,11 @@
         <?php
         $querySelect = "select r.id_reserva id, r.data_devolucao devolucao, r.data_emprestimo emprestimo,
                 a.nome_aluno aluno, l.titulo_livro livro, l.autor_livro autor_livro, l.ano_livro ano_livro,
-                b.name biblioteca from reserva r
+                b.name biblioteca, a2.nome_atendente atendente from reserva r
                 left join aluno a on r.aluno_id_aluno = a.id_aluno
                 left join biblioteca b on r.biblioteca_id = b.id
-                left join livro l on l.id_livro = r.livro_id_livro";
+                left join livro l on l.id_livro = r.livro_id_livro
+                left join atendente a2 on r.atendente_id_atendente = a2.id_atendente";
 
         $result = $conn->query($querySelect);
         while ($obj = $result->fetch_object()) {
@@ -33,6 +35,7 @@
             print "<td>$obj->livro</td>";
             print "<td>$obj->ano_livro</td>";
             print "<td>$obj->autor_livro</td>";
+            print "<td>$obj->atendente</td>";
             print "<td>$obj->biblioteca</td>";
             print "<td>$obj->emprestimo</td>";
             print "<td>$obj->devolucao</td>";

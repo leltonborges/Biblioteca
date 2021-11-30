@@ -12,15 +12,13 @@ $id = @$_REQUEST["id"];
 $acao = @$_REQUEST["acao"];
 
 if(isset($id)){
-    $queryReserva = "select r.id_reserva id, r.data_devolucao devolucao, r.data_emprestimo emprestimo, a.nome_aluno aluno,
-                        l.titulo_livro livro,  b.name biblioteca from reserva r
-                        left join aluno a on r.aluno_id_aluno = a.id_aluno
-                        left join biblioteca b on r.biblioteca_id = b.id
-                        left join livro l on l.id_livro = r.livro_id_livro
+    $queryReserva = "select r.id_reserva id, r.livro_id_livro livro, r.aluno_id_aluno aluno,
+                           r.atendente_id_atendente atendente, r.biblioteca_id biblioteca,
+                           r.data_emprestimo emprestimo, r.data_devolucao devolucao 
+                    from reserva r 
                     where r.id_reserva = $id ";
     $resultReserva = $conn->query($queryReserva);
     $objR = $resultReserva->fetch_object();
-    var_dump($objR);
 }
 
 ?>
@@ -36,7 +34,7 @@ if(isset($id)){
                 <option selected>Choose...</option>
                 <?php
                 while ($obj = $resultAluno->fetch_object()) {
-                    echo $objR->aluno == $obj->nome ? "<option value='$obj->id' selected>$obj->nome</option>" :
+                    echo $objR->aluno == $obj->id ? "<option value='$obj->id' selected>$obj->nome</option>" :
                             "<option value='$obj->id'>$obj->nome</option>";
                 }
                 ?>
@@ -48,42 +46,33 @@ if(isset($id)){
                 <option selected>Choose...</option>
                 <?php
                 while ($objB = $resultBib->fetch_object()) {
-                    echo "<option value='$objB->id'>$objB->name</option>";
+                    echo $objR->biblioteca == $objB->id ? "<option value='$objB->id' selected>$objB->name</option>":
+                            "<option value='$objB->id'>$objB->name</option>";
                 }
                 ?>
             </select>
         </div>
         <div class="col-md-6">
             <label for="livro" class="form-label">Livro</label>
-            <select id="livro" name="livro" class="form-select" required>
+            <select id="livro" name="livro" livroSelect="<?php echo $objR->livro; ?>" class="form-select" required>
                 <option selected>Choose...</option>
-                <?php
-                //                $inpBiblioteca = $_REQUEST["bibliteca"];
-                //                $queryBiblioteca = "select b.id, b.name, a.nome_atendente as atendente
-                //                                    from biblioteca b
-                //                                        left join atendente a on b.id = a.biblioteca_id
-                //                                    where b.id = $inpBiblioteca";
-                //                var_dump($inpBiblioteca);
-                //                $resultBiblioteca = $conn->query($queryBiblioteca);
-                //                while ($objL = $resultLivro->fetch_object()) {
-                //                    echo "<option value='$objL->id'>$objL->titulo - $objL->categoria</option>";
-                //                }
-                //                ?>
             </select>
         </div>
         <div class="col-md-6">
             <label for="atendente" class="form-label">Atendente</label>
-            <select id="atendente" name="atendente" class="form-select" required>
+            <select id="atendente" name="atendente" atendentSelect="<?php echo $objR->atendente; ?>" class="form-select" required>
                 <option selected>Choose...</option>
             </select>
         </div>
         <div class="col-md-6">
             <label for="emprestimo" class="form-label">Data do emprestimo</label>
-            <input type="date" class="form-control" id="emprestimo" name="emprestimo" maxlength="3" required>
+            <input type="date" class="form-control" id="emprestimo" name="emprestimo"
+                   maxlength="3" required value="<?php echo $objR->emprestimo; ?>">
         </div>
         <div class="col-md-6">
             <label for="devolucao" class="form-label">Data da devolução</label>
-            <input type="date" class="form-control" id="devolucao" name="devolucao" required>
+            <input type="date" class="form-control" id="devolucao"
+                   name="devolucao" required value="<?php echo $objR->devolucao; ?>">
         </div>
         <div class="col-12">
             <button class="btn btn-outline-primary" type="submit">Salvar</button>

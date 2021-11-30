@@ -21,15 +21,32 @@ switch ($acao) {
 
         if ($result) {
             print "<script>alert('Cadastrado com sucesso');</script>";
-            print "<script>location.href='?page=reserva-listar'</script>";
         } else {
             print "<script>alert('Error ao salvar');</script>";
-            print "<script>location.href='?page=reserva-listar'</script>";
         }
+        print "<script>location.href='?page=reserva-listar'</script>";
+        break;
+    case "editar":
+        validaNumber($atendente, $livro, $aluno, $biblioteca);
+
+        $queryUpdate = "update reserva set livro_id_livro = $livro, aluno_id_aluno = $aluno, 
+                        atendente_id_atendente = $atendente, biblioteca_id =  $biblioteca, 
+                        data_devolucao = '$data_devolucao', data_emprestimo = '$data_emprestimo'
+                        where id_reserva = $id";
+
+        $result = $conn->query($queryUpdate);
+
+        if ($result) {
+            print "<script>alert('Atualizado com sucesso');</script>";
+        } else {
+            print "<script>alert('Error ao salvar');</script>";
+        }
+        print "<script>location.href='?page=reserva-listar'</script>";
         break;
 }
 
-function validaNumber(...$filds){
+function validaNumber(...$filds)
+{
     foreach ($filds as $value) {
         if (!is_numeric($value)) {
             print "<script>alert('Algumas opções não foram preencida corretamente');</script>";

@@ -39,7 +39,11 @@ switch ($acao) {
                 titulo_livro = '$titutlo', autor_livro = '$autor', editora_livro = '$editora', 
                 edicao_livro = '$edicao', ano_livro = $ano, localidade_livro = '$localidade', 
                 categoria_id = $categoria where id_livro = $id";
-
+        foreach ($biblioteca as $b){
+            echo $b. "<br>";
+        }
+        echo "id: $id";
+        die();
         $result = $conn->query($query);
         if ($result) {
             print "<script>alert('Atualizado com sucesso');</script>";

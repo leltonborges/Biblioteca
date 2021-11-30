@@ -11,6 +11,9 @@ $queryLivro = "select l.id_livro as id, l.titulo_livro as titulo, l.autor_livro 
 $resultLivro = $conn->query($queryLivro);
 $resultCategoria = $conn->query($queryCategoria);
 $obj = $resultLivro->fetch_object();
+$queryBiblioteca = "select id, name from biblioteca";
+$resultBiblioteca = $conn->query($queryBiblioteca);
+$rowB = mysqli_num_rows($resultBiblioteca);
 ?>
 <section class="context">
     <h1>Editar livros</h1>
@@ -32,6 +35,17 @@ $obj = $resultLivro->fetch_object();
             <label for="editora" class="form-label">Editora</label>
             <input type="text" class="form-control" id="editora"
                    name="editora" value="<?php echo $obj->editora; ?>" required>
+        </div>
+        <div class="col-md-4">
+            <label for="biblioteca" class="form-label">Biblioteca</label>
+            <select id="biblioteca" name="biblioteca[]" class="form-select multSelect" multiple
+                    size="<?php echo $rowB; ?>" required>
+                <?php
+                while ($objB = $resultBiblioteca->fetch_object()) {
+                    print "<option value=$objB->id>$objB->name</option>";
+                }
+                ?>
+            </select>
         </div>
         <div class="col-md-6">
             <label for="edicao" class="form-label">Edição</label>

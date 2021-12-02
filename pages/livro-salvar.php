@@ -35,23 +35,33 @@ switch ($acao) {
         break;
 
     case "editar":
-        $query = "update livro set 
+        $all_success_query = true;
+        $queryUpdate = "update livro set 
                 titulo_livro = '$titutlo', autor_livro = '$autor', editora_livro = '$editora', 
                 edicao_livro = '$edicao', ano_livro = $ano, localidade_livro = '$localidade', 
                 categoria_id = $categoria where id_livro = $id";
-        foreach ($biblioteca as $b){
-            echo $b. "<br>";
+        $queryDelete = "delete from biblioteca_livro where id_livro = $id";
+
+        $conn->query($queryUpdate) ? null : $all_success_query = false;
+        $conn->query($queryDelete) ? null : $all_success_query = false;
+
+        foreach ($biblioteca as $biblioteca_id) {
+            $queryBibliotecaId = "insert into biblioteca_livro (id_livro, id_biblioteca)
+                                    values ($id, $biblioteca_id)";
+
+            $conn->query($queryBibliotecaId) ? null : $all_success_query = false;;
         }
-        echo "id: $id";
-        die();
-        $result = $conn->query($query);
-        if ($result) {
+
+        $all_success_query ? $conn->commit() : $conn->rollback();
+
+        if ($all_success_query) {
             print "<script>alert('Atualizado com sucesso');</script>";
         } else {
             print "<script>alert('Error ao salvar');</script>";
         }
         print "<script>location.href='?page=livro-listar'</script>";
         break;
+
     case "excluir":
         $query = "delete from livro where id_livro=$id";
         $result = $conn->query($query);

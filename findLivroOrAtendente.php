@@ -3,15 +3,27 @@ require_once 'config.php';
 
 $type = $_POST["type"];
 $id_biblioteca = $_POST["id_biblioteca"];
+$id_livro = $_POST["id_livro"];
 
 if ($type == "livros") {
-    if (isset($id_biblioteca)) {
+    if (isset($id_livro)) {
+        $queryLivroBibliotecas = "select id_biblioteca biblioteca 
+                                        from biblioteca_livro where  id_livro = $id_livro";
+        $resultLivroBibli = $conn->query($queryLivroBibliotecas);
+        while ($obj = $resultLivroBibli->fetch_object()){
+            $output[] = array(
+              "biblioteca" => $obj->biblioteca
+            );
+        }
+        echo json_encode($output);
+    } else if (isset($id_biblioteca)) {
         $queryLivros = "select l.id_livro as id, l.titulo_livro as title, l.autor_livro as autor from livro as l
-                        inner join biblioteca_livro as bl
-                        on bl.id_livro = l.id_livro
-                    where  bl.id_biblioteca = $id_biblioteca";
+                            inner join biblioteca_livro as bl
+                            on bl.id_livro = l.id_livro
+                        where  bl.id_biblioteca = $id_biblioteca";
 
         $resultLivros = $conn->query($queryLivros);
+
         while ($obj = $resultLivros->fetch_object()) {
             $output[] = array(
                 "id" => $obj->id,
@@ -20,6 +32,7 @@ if ($type == "livros") {
             );
         }
         echo json_encode($output);
+
     }
 } else if ($type == "atendentes") {
     if (isset($id_biblioteca)) {

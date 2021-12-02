@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
     }
 })
 
-const getByLibraryAndType = function (id_biblioteca = 0, type = "livros") {
+const getByLibraryAndType = function (id_biblioteca = 0, type = "livros", id_livro = 0) {
     $.ajax({
         url: "./findLivroOrAtendente.php",
         method: "POST",

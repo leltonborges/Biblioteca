@@ -19,7 +19,7 @@ $rowB = mysqli_num_rows($resultBiblioteca);
     <h1>Editar livros</h1>
     <hr/>
     <form class="row g-3" method="POST" action="?page=livro-salvar">
-        <input type="hidden" name="id" value="<?php echo $obj->id; ?>">
+        <input type="hidden" name="id" value="<?php echo $obj->id; ?>" id="livroId">
         <input type="hidden" name="acao" value="editar">
         <div class="col-md-6">
             <label for="titulo" class="form-label">Titulo do livro</label>

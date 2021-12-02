@@ -3,7 +3,7 @@ $id = $_REQUEST["id"];
 $queryCategoria = "select id, name from categoria";
 $queryLivro = "select l.id_livro as id, l.titulo_livro as titulo, l.autor_livro as autor,
                    l.editora_livro as editora, l.edicao_livro as edicao, l.ano_livro as ano,
-                   l.localidade_livro as localidade, c.name as categoria
+                   l.localidade_livro as localidade, c.name as categoria, l.url as url
                 from livro l
                     left join categoria c
                         on l.categoria_id = c.id
@@ -21,20 +21,30 @@ $rowB = mysqli_num_rows($resultBiblioteca);
     <form class="row g-3" method="POST" action="?page=livro-salvar">
         <input type="hidden" name="id" value="<?php echo $obj->id; ?>" id="livroId">
         <input type="hidden" name="acao" value="editar">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label for="titulo" class="form-label">Titulo do livro</label>
             <input type="text" class="form-control" id="titulo"
                    name="titulo" value="<?php echo $obj->titulo; ?>" required>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label for="autor" class="form-label">Autor</label>
             <input type="text" class="form-control" id="autor"
                    name="autor" value="<?php echo $obj->autor; ?>" required>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <label for="url" class="form-label">URL</label>
+            <input type="text" class="form-control" id="url"
+                   name="url" value="<?php echo $obj->url; ?>" required>
+        </div>
+        <div class="col-md-4">
             <label for="editora" class="form-label">Editora</label>
             <input type="text" class="form-control" id="editora"
                    name="editora" value="<?php echo $obj->editora; ?>" required>
+        </div>
+        <div class="col-md-4">
+            <label for="edicao" class="form-label">Edição</label>
+            <input type="text" class="form-control" id="edicao" name="edicao"
+                   maxlength="3" value="<?php echo $obj->edicao; ?>" required>
         </div>
         <div class="col-md-4">
             <label for="biblioteca" class="form-label">Biblioteca</label>
@@ -47,17 +57,13 @@ $rowB = mysqli_num_rows($resultBiblioteca);
                 ?>
             </select>
         </div>
-        <div class="col-md-6">
-            <label for="edicao" class="form-label">Edição</label>
-            <input type="text" class="form-control" id="edicao" name="edicao"
-                   maxlength="3" value="<?php echo $obj->edicao; ?>" required>
-        </div>
-        <div class="col-md-3">
+
+        <div class="col-md-4">
             <label for="ano" class="form-label">Ano</label>
             <input type="number" class="form-control" id="ano" name="ano"
                    maxlength="4" placeholder="2001" value="<?php echo $obj->ano; ?>" required>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <label for="localidade" class="form-label">Localidade</label>
             <input type="text" class="form-control" id="localidade"
                    name="localidade" value="<?php echo $obj->localidade; ?>" required>

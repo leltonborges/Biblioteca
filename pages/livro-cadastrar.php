@@ -12,13 +12,17 @@ $rowB = mysqli_num_rows($resultBiblioteca);
     <hr/>
     <form class="row g-3" method="POST" action="?page=livro-salvar">
         <input type="hidden" name="acao" value="cadastrar">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label for="titulo" class="form-label">Titulo do livro</label>
             <input type="text" class="form-control" id="titulo" name="titulo" required>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label for="autor" class="form-label">Autor</label>
             <input type="text" class="form-control" id="autor" name="autor" required>
+        </div>
+        <div class="col-md-4">
+            <label for="url" class="form-label">URL</label>
+            <input type="text" class="form-control" id="url" name="url" required>
         </div>
         <div class="col-md-4">
             <label for="editora" class="form-label">Editora</label>

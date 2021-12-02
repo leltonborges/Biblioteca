@@ -8,6 +8,7 @@ $editora = @$_REQUEST["editora"];
 $edicao = @$_REQUEST["edicao"];
 $biblioteca = @$_REQUEST["biblioteca"];
 $ano = @$_REQUEST["ano"];
+$url = @$_REQUEST["url"];
 $localidade = @$_REQUEST["localidade"];
 $categoria = @$_REQUEST["categoria"];
 $acao = @$_REQUEST["acao"];
@@ -15,9 +16,8 @@ $acao = @$_REQUEST["acao"];
 switch ($acao) {
     case "cadastrar":
         $query = "insert into livro 
-                (titulo_livro, autor_livro, editora_livro, edicao_livro, ano_livro, localidade_livro, categoria_id) 
-                values ('$titutlo', '$autor', '$editora', '$edicao', $ano, '$localidade', $categoria)";
-
+                (titulo_livro, autor_livro, editora_livro, edicao_livro, ano_livro, localidade_livro, categoria_id, url) 
+                values ('$titutlo', '$autor', '$editora', '$edicao', $ano, '$localidade', $categoria, '$url')";
         $result = $conn->query($query);
         $lastIdLivro = $conn->insert_id;
 
@@ -39,7 +39,8 @@ switch ($acao) {
         $queryUpdate = "update livro set 
                 titulo_livro = '$titutlo', autor_livro = '$autor', editora_livro = '$editora', 
                 edicao_livro = '$edicao', ano_livro = $ano, localidade_livro = '$localidade', 
-                categoria_id = $categoria where id_livro = $id";
+                categoria_id = $categoria, url = '$url' 
+                where id_livro = $id";
         $queryDelete = "delete from biblioteca_livro where id_livro = $id";
 
         $conn->query($queryUpdate) ? null : $all_success_query = false;

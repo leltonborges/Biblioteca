@@ -20,7 +20,7 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
             <input type="text" class="form-control" id="endereco" name="endereco" value="<?php echo $row['address']; ?>">
         </div>
         <div class="col-md-6">
-            <label for="cidade" class="form-label">Cidate</label>
+            <label for="cidade" class="form-label">Cidade</label>
             <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo $row['city']; ?>">
         </div>
         <div class="col-md-4">

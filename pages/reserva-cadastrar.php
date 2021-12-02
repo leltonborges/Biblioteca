@@ -41,7 +41,7 @@ if(isset($id)){
             </select>
         </div>
         <div class="col-md-6">
-            <label for="biblioteca" class="form-label">Biblioteva</label>
+            <label for="biblioteca" class="form-label">Biblioteca</label>
             <select id="biblioteca" name="biblioteca" class="form-select" required>
                 <option selected>Choose...</option>
                 <?php

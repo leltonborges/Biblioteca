@@ -12,7 +12,7 @@
             <input type="text" class="form-control" id="endereco" name="endereco" required>
         </div>
         <div class="col-md-6">
-            <label for="cidade" class="form-label">Cidate</label>
+            <label for="cidade" class="form-label">Cidade</label>
             <input type="text" class="form-control" id="cidade" name="cidade" required>
         </div>
         <div class="col-md-4">

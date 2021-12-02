@@ -42,8 +42,7 @@
             ?>
 
             <td>
-                <button type="button" class="editar-library" data-bs-toggle="modal"
-                        data-bs-target="#modalremove-<?php echo $obj->id ?>">
+                <button type="button" class="editar-library">
                     <a href="?page=reserva-cadastrar&id=<?php echo $obj->id ?>" id="editar-library">editar</a>
                 </button>
             </td>

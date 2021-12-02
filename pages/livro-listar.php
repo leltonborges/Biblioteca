@@ -10,6 +10,7 @@
             <th>Editora</th>
             <th>Edição</th>
             <th>Ano</th>
+            <th>Bibliotecas</th>
             <th>Localidade</th>
             <th>Categoria</th>
             <th>Editar</th>
@@ -25,7 +26,19 @@
                     left join categoria c
                         on l.categoria_id = c.id";
         $result = $conn->query($sql);
+
         while ($obj = $result->fetch_object()) {
+            $queryBibliotecaLivro = "select b.name from biblioteca_livro bl
+                left join biblioteca b on b.id = bl.id_biblioteca
+                where id_livro = $obj->id";
+
+            $output = "";
+            $respBibli = $conn->query($queryBibliotecaLivro);
+
+            while ($objBiblioteca = $respBibli->fetch_object()) {
+                $output .= "<li>$objBiblioteca->name</li>";
+            }
+
             print "<tr>";
             print "<td>$obj->id</td>";
             print "<td>$obj->titulo</td>";
@@ -33,13 +46,34 @@
             print "<td>$obj->editora</td>";
             print "<td>$obj->edicao</td>";
             print "<td>$obj->ano</td>";
+            print "<td>
+                        <button type='button' class='btn btn-outline-success' data-bs-toggle='modal'
+                        data-bs-target='#modalBiblioteca-$obj->id'>
+                            Disponíveis
+                        </button>
+                        <div class='modal fade' id='modalBiblioteca-$obj->id' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                          <div class='modal-dialog modal-dialog-centered'>
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <h5 class='modal-title' id='exampleModalLabel'>Bibliotecas contendo o livro</h5>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                              </div>
+                              <div class='modal-body'>
+                                <ul> {$output} </ul>
+                              </div>
+                              <div class='modal-footer'>
+                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                   </td>";
             print "<td>$obj->localidade</td>";
             print "<td>$obj->categoria</td>";
             ?>
 
             <td>
-                <button type="button" class="editar-library" data-bs-toggle="modal"
-                        data-bs-target="#modalremove-<?php echo $obj->id ?>">
+                <button type="button" class="editar-library">
                     <a href="?page=livro-editar&id=<?php echo $obj->id ?>" id="editar-library">editar</a>
                 </button>
             </td>
@@ -90,4 +124,5 @@
         ?>
         </tbody>
     </table>
+
 </section>

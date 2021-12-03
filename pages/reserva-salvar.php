@@ -43,6 +43,17 @@ switch ($acao) {
         }
         print "<script>location.href='?page=reserva-listar'</script>";
         break;
+    case "excluir":
+        $queryDelete = "delete from reserva where id_reserva = $id";
+        $result = $conn->query($queryDelete);
+
+        if ($result) {
+            print "<script>alert('Deletado com sucesso');</script>";
+        } else {
+            print "<script>alert('Error ao deletar');</script>";
+        }
+        print "<script>location.href='?page=reserva-listar'</script>";
+        break;
 }
 
 function validaNumber(...$filds)

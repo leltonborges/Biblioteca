@@ -1,3 +1,7 @@
+body{
+  background: #d7d2d2;
+}
+
 #menu {
   height: 60px;
   width: 100%;
@@ -40,4 +44,8 @@ table {
 }
 thead {
   background: #a5a5a5;
+}
+
+.card{
+  width: 250px;
 }

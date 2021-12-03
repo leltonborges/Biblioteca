@@ -73,7 +73,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                <form action="?page=livro-salvar" method="post">
+                                <form action="?page=reserva-salvar" method="post">
                                     <input type="hidden" name="acao" value="excluir">
                                     <input type="hidden" name="id" value="<?php print $obj->id ?>">
 
